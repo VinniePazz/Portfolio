@@ -5,9 +5,9 @@ import { NavLink, Link } from "react-router-dom";
 const Header = styled.header.attrs(({ page }) => ({
   gradient:
     page === "skills"
-      ? "linear-gradient(-90deg,#dc5a32,#c44a67)"
+      ? "linear-gradient(-90deg,#d62d2d, #dc5a32)"
       : page === "portfolio"
-      ? "#FF9F1C"
+      ? "linear-gradient(-90deg,#F2C94C,#F2994A)"
       : "blue"
 }))`
   position: fixed;
@@ -23,7 +23,7 @@ const Header = styled.header.attrs(({ page }) => ({
     width: 100%;
     margin: 0 auto;
     padding: 0 1em 0 1em;
-    max-width: 80em;
+    max-width: 70em;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,11 +37,34 @@ const Header = styled.header.attrs(({ page }) => ({
     a {
       display: flex;
       align-items: center;
-      text-decoration: none;
+			text-decoration: none;
+			position: relative;
       height: 100%;
       padding: 0 1em 0 1em;
-      color: ${({ theme }) => theme.creamy};
-    }
+			color: #ffffff;
+			/* border-bottom: 2px solid transparent; */
+			transition: all .3s ease;
+
+			&::before {
+				content: '';
+				height: 3px;
+				background-color: #ffffff;
+				position: absolute;
+				bottom: 3px;
+				width: 0;
+				transition: all .3s ease;
+			}
+
+			&:hover::before {
+				/* border-bottom: 2px solid #ffffff; */
+				width: 75%;
+				color: red;
+			}
+		}
+		
+		& a:not(last-of-type) {
+			padding-right: 0;
+		}
   }
 `;
 
@@ -50,7 +73,7 @@ const HomeLink = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-	color: ${({ theme }) => theme.creamy};
+	color: #ffffff;
 	text-decoration: none;
 `;
 

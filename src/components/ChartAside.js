@@ -2,22 +2,32 @@ import React from "react";
 import styled from "styled-components";
 
 const Aside = styled.div`
-  width: 30%;
+  width: 35%;
   height: 88%;
   margin-left: 2em;
   display: flex;
-  flex-direction: column;
+	flex-direction: column;
+	
+	@media (min-width: 1800px) {
+		height: 60%;
+		align-self: flex-start;
+		margin-top: 10em;
+	}
 
   & .chart-header {
-    background: #ff9f1c;
-    height: 30%;
+    background: #ffffff;
+    flex-basis: 40%;
   }
 
   & .chart-description {
-    margin-top: 1em;
+		background: #ffffff;
+		margin-top: 1em;
+		overflow-y: auto;
+		flex: 1 0 50%;
 
     & p {
-      margin-bottom: 1em;
+			line-height: 1.4;
+      margin-bottom: .6em;
     }
   }
 `;

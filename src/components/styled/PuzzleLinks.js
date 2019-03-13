@@ -2,15 +2,16 @@ import styled from 'styled-components'
 
 const PuzzleLink = styled.div`
   flex-basis: 50%;
-  border: 2px solid ${({ theme }) => theme.dark};
+  border: 3px solid ${({ theme }) => theme.dark};
   position: relative;
   text-decoration: none;
 
   & h3 {
     position: absolute;
     font-size: 2rem;
-    opacity: 0.7;
-    font-weight: 400;
+    opacity: 0.9;
+		font-weight: 400;
+		transition: border-bottom .2s ease-in-out;
   }
 
   & svg {
@@ -36,7 +37,8 @@ export const SkillsLink = styled(PuzzleLink)`
   & h3 {
     left: -35%;
     top: 20%;
-    color: ${({ theme }) => theme.tomato};
+		color: ${({ theme }) => theme.tomato};
+
   }
 
   &::before {
@@ -50,7 +52,9 @@ export const SkillsLink = styled(PuzzleLink)`
     border-top-right-radius: 100%;
     border-bottom-right-radius: 100%;
     background: ${({ theme }) => theme.tomato};
-  }
+	}
+	
+
 `;
 
 export const AboutLink = styled(PuzzleLink)`
@@ -66,20 +70,23 @@ export const AboutLink = styled(PuzzleLink)`
     right: -35%;
 		top: 20%;
 		color: ${({ theme }) => theme.lightDark};
+
   }
 
   &::before {
     width: 35px;
     height: 30px;
     left: 62%;
-    bottom: -30px;
+    bottom: -31px;
     border-bottom: 5px solid ${({ theme }) => theme.dark};
     border-right: 5px solid ${({ theme }) => theme.dark};
     border-left: 5px solid ${({ theme }) => theme.dark};
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
     background: ${({ theme }) => theme.lightDark};
-  }
+	}
+	
+
 `;
 
 export const PortfolioLink = styled(PuzzleLink)`
@@ -94,7 +101,8 @@ export const PortfolioLink = styled(PuzzleLink)`
   & h3 {
     left: -45%;
     bottom: 20%;
-    color: ${({ theme }) => theme.yellow};
+		color: ${({ theme }) => theme.yellow};
+
   }
 
   &::before {
@@ -108,7 +116,9 @@ export const PortfolioLink = styled(PuzzleLink)`
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     background: ${({ theme }) => theme.yellow};
-  }
+	}
+
+	
 `;
 
 export const ContactLink = styled(PuzzleLink)`
@@ -124,12 +134,13 @@ export const ContactLink = styled(PuzzleLink)`
     right: -45%;
     bottom: 20%;
 		color: ${({ theme }) => theme.blueSky};
+
   }
 
   &::before {
     width: 30px;
     height: 35px;
-    left: -30px;
+    left: -31px;
     top: 62%;
     border-left: 5px solid ${({ theme }) => theme.dark};
     border-top: 5px solid ${({ theme }) => theme.dark};
@@ -137,5 +148,6 @@ export const ContactLink = styled(PuzzleLink)`
     border-top-left-radius: 100%;
     border-bottom-left-radius: 100%;
     background: ${({ theme }) => theme.blueSky};
-  }
+	}
+
 `;

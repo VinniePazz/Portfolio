@@ -22,7 +22,7 @@ const H1 = styled.h1`
   letter-spacing: -0.06em;
   font-size: 4rem;
 	font-weight: 400;
-	opacity: 0.4;
+	opacity: 0.6;
 
 	@media (max-width: 1200px) {
 		font-size: 3rem;
