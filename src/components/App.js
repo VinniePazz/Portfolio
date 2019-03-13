@@ -1,40 +1,39 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import { test } from '../actions'
 
-import Landing from "./Landing";
-import SkillsPage from "./SkillsPage";
 import GlobalStyle from "./styled/GlobalStyle";
+import Home from "./Home";
+
+import SkillsPage from "./SkillsPage";
+import PortfolioPage from "./PortfolioPage";
+
+import gif from "../assets/react.gif";
+
+const AboutPage = () => {
+  return <div>About</div>;
+};
+
+const ContactsPage = () => {
+  return (
+    <div>Contacts</div>
+  );
+};
 
 class App extends Component {
-
-	componentDidMount() {
-		console.log('App have been mounted')
-	}
-
-	componentDidUpdate() {
-		console.log('App have been updated')
-	}
-
   render() {
-		console.log('App render method have been called')
     return (
       <>
         <GlobalStyle />
         <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route path="/skills" component={SkillsPage} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/skills" component={SkillsPage} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/portfolio" component={PortfolioPage} />
+          <Route exact path="/contacts" component={ContactsPage} />
         </Switch>
       </>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    data: state.data
-  };
-};
-
-export default connect(mapStateToProps, { test })(App);
+export default App;
