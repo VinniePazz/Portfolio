@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`
   0% {
-    opacity: .6;
+    opacity: .4;
   }
 
 	50% {
@@ -11,7 +11,7 @@ const rotate = keyframes`
 	}
 
 	100% {
-		opacity: 0.6;
+		opacity: .4;
 	}
 
 `;
@@ -46,7 +46,7 @@ const H1 = styled.h1`
 `;
 
 const Smoky = styled(H1)`
-	animation: ${rotate} 3s linear infinite;
+	animation: ${rotate} 2s linear infinite;
 `
 
 const Slogan = () => {

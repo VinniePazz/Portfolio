@@ -1,7 +1,7 @@
 export default {
 	bgSkills: "linear-gradient(to right, #e35d5b, #e53935)",
 	// dark: "#011627"
-	dark: "rgb(14, 22, 36)",
+	dark: "#131a29",
 	lightDark: '#8D99AE',
 	creamy: '#EDF2F4',
 	blueSky: '#31b5a9',

@@ -15,9 +15,6 @@ const SkillsContent = styled.div`
   align-items: center;
   height: ${props => `calc(100vh - ${props.theme.headerHeight})`};
 
-  & .hl {
-    color: red;
-  }
 `;
 
 class SkillsPage extends Component {

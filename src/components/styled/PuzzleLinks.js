@@ -1,28 +1,29 @@
 import styled from 'styled-components'
+import posed from 'react-pose'
 
 const PuzzleLink = styled.div`
   flex-basis: 50%;
-  border: 3px solid ${({ theme }) => theme.dark};
+  border: 3px solid ${({theme}) => theme.dark};
   position: relative;
-  text-decoration: none;
+	text-decoration: none;
+	transition: all .2s;
 
   & h3 {
     position: absolute;
     font-size: 2rem;
-    opacity: 0.9;
 		font-weight: 400;
-		transition: border-bottom .2s ease-in-out;
+		transition: all 1s linear;
   }
 
   & svg {
     position: absolute;
   }
 
-  &::before {
+  /* &::before {
     content: "";
     position: absolute;
     z-index: 1;
-  }
+	} */
 `;
 
 export const SkillsLink = styled(PuzzleLink)`
@@ -38,10 +39,10 @@ export const SkillsLink = styled(PuzzleLink)`
     left: -35%;
     top: 20%;
 		color: ${({ theme }) => theme.tomato};
-
+		opacity: ${(props) => props.opacity}
   }
 
-  &::before {
+  /* &::before {
     width: 30px;
     height: 35px;
     right: -30px;
@@ -51,10 +52,17 @@ export const SkillsLink = styled(PuzzleLink)`
     border-right: 5px solid ${({ theme }) => theme.dark};
     border-top-right-radius: 100%;
     border-bottom-right-radius: 100%;
-    background: ${({ theme }) => theme.tomato};
-	}
+		background: ${({ theme }) => theme.tomato};
+		z-index: 100;
+	} */
 	
+	:hover {
+		transform: translate(-10px, -10px);
+	}
 
+	:active {
+		transform: translate(-5px, -5px);
+	}
 `;
 
 export const AboutLink = styled(PuzzleLink)`
@@ -70,10 +78,10 @@ export const AboutLink = styled(PuzzleLink)`
     right: -35%;
 		top: 20%;
 		color: ${({ theme }) => theme.lightDark};
-
+		opacity: ${(props) => props.opacity}
   }
 
-  &::before {
+  /* &::before {
     width: 35px;
     height: 30px;
     left: 62%;
@@ -84,14 +92,22 @@ export const AboutLink = styled(PuzzleLink)`
     border-bottom-left-radius: 100%;
     border-bottom-right-radius: 100%;
     background: ${({ theme }) => theme.lightDark};
-	}
+	} */
 	
+	:hover {
+		transform: translate(10px, -10px);
+	}
 
+	:active {
+		transform: translate(5px, -5px);
+	}
 `;
+
+
 
 export const PortfolioLink = styled(PuzzleLink)`
   background: ${({ theme }) => theme.yellow};
-  border-bottom-left-radius: 100%;
+	border-bottom-left-radius: 100%;
 
   & svg {
     bottom: 40%;
@@ -102,10 +118,10 @@ export const PortfolioLink = styled(PuzzleLink)`
     left: -45%;
     bottom: 20%;
 		color: ${({ theme }) => theme.yellow};
-
+		opacity: ${(props) => props.opacity}
   }
 
-  &::before {
+  /* &::before {
     width: 35px;
     height: 30px;
     right: 62%;
@@ -116,9 +132,15 @@ export const PortfolioLink = styled(PuzzleLink)`
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     background: ${({ theme }) => theme.yellow};
+	} */
+
+	:hover {
+		transform: translate(-10px, 10px);
 	}
 
-	
+	:active {
+		transform: translate(-5px, 5px);
+	}
 `;
 
 export const ContactLink = styled(PuzzleLink)`
@@ -134,10 +156,10 @@ export const ContactLink = styled(PuzzleLink)`
     right: -45%;
     bottom: 20%;
 		color: ${({ theme }) => theme.blueSky};
-
+		opacity: ${(props) => props.opacity}
   }
 
-  &::before {
+  /* &::before {
     width: 30px;
     height: 35px;
     left: -31px;
@@ -148,6 +170,13 @@ export const ContactLink = styled(PuzzleLink)`
     border-top-left-radius: 100%;
     border-bottom-left-radius: 100%;
     background: ${({ theme }) => theme.blueSky};
+	} */
+
+	:hover {
+		transform: translate(10px, 10px);
 	}
 
+	:active {
+		transform: translate(5px, 5px);
+	}
 `;

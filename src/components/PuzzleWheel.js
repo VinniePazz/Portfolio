@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import posed, { PoseGroup } from "react-pose";
+import _ from 'lodash'
 
 import WheelLinks from "./WheelLinks";
 import WheelCircle from "./WheelCircle";
@@ -12,27 +14,55 @@ const PuzzleContainer = styled.div`
   align-items: center;
 `;
 
-const Wheel = styled.div`
+const AnimatedWheel = posed.div({
+  visible: {
+    opacity: 1,
+    scale: 1,
+    rotate: 0,
+    transition: {
+			opacity: {ease: "backInOut", duration: 1500},
+			rotate: {ease: "backInOut", duration: 1000},
+      scale: { ease: "easeIn", duration: 1000 },
+      default: { ease: "linear", duration: 1000 }
+    }
+  },
+  hidden: { opacity: 0, scale: 0, rotate: 500 }
+});
+
+const Wheel = styled(AnimatedWheel)`
   width: 32rem;
   height: 32rem;
-  background: #011627;
   border-radius: 100%;
   position: relative;
   display: flex;
   flex-wrap: wrap;
   z-index: 1;
-	/* box-shadow: 60px 60px 0 0 #5d4e4e0f, 40px 40px 0 0 #55555517, 20px 20px 0 0 #653c3c1a; */
+  transform-origin: 50% 50%;
 `;
 
-const PuzzleWheel = () => {
-  return (
-    <PuzzleContainer>
-      <Wheel>
-        <WheelCircle />
-        <WheelLinks />
-      </Wheel>
-    </PuzzleContainer>
-  );
-};
+class PuzzleWheel extends React.Component {
+  state = {
+    isVisible: false,
+    opacity: 0
+  };
+
+  componentDidMount() {
+    this.setState(state => ({ isVisible: !state.isVisible }));
+    setTimeout(() => {
+      this.setState({ opacity: 1 });
+    }, 1300);
+	}
+
+  render() {
+    return (
+      <PuzzleContainer>
+        <Wheel pose={this.state.isVisible ? "visible" : "hidden"}>
+          <WheelCircle />
+          <WheelLinks opacity={this.state.opacity} />
+        </Wheel>
+      </PuzzleContainer>
+    );
+  }
+}
 
 export default PuzzleWheel;

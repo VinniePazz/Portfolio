@@ -10,7 +10,7 @@ const SVG = styled.svg`
 	transition: fill 0.2s;
 
 	${PortfolioLink}:hover & {
-    fill: rebeccapurple;
+    fill: #16364e;
   }
 `;
 

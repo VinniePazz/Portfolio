@@ -9,7 +9,7 @@ const SVG = styled.svg`
 	transition: fill 0.2s;
 
 	${ContactLink}:hover & {
-    fill: rebeccapurple;
+    fill: #16364e;
   }
 `;
 

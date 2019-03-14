@@ -8,7 +8,7 @@ const LogoContainer = styled.div`
   width: 40%;
   height: 40%;
   top: 50%;
-  left: 50%;
+	left: 50%;
 	background: ${({theme}) => theme.dark};
   transform: translate(-50%, -50%);
   border-radius: 100%;
