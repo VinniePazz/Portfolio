@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import styled from 'styled-components'
 
 import GlobalStyle from "./styled/GlobalStyle";
 import Home from "./Home";
 
 import SkillsPage from "./SkillsPage";
 import PortfolioPage from "./PortfolioPage";
-
-import gif from "../assets/react.gif";
 
 const AboutPage = () => {
   return <div>About</div>;
@@ -19,10 +18,14 @@ const ContactsPage = () => {
   );
 };
 
+const Background = styled.div`
+	background-color: ${({theme}) => theme.dark};
+`;
+
 class App extends Component {
   render() {
     return (
-      <>
+      <Background>
         <GlobalStyle />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -31,7 +34,7 @@ class App extends Component {
           <Route exact path="/portfolio" component={PortfolioPage} />
           <Route exact path="/contacts" component={ContactsPage} />
         </Switch>
-      </>
+      </Background>
     );
   }
 }

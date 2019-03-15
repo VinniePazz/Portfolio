@@ -2,95 +2,87 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
 
-const Header = styled.header.attrs(({ page }) => ({
-  gradient:
-    page === "skills"
-      ? "linear-gradient(-90deg,#d62d2d, #dc5a32)"
-      : page === "portfolio"
-      ? "linear-gradient(-90deg,#F2C94C,#F2994A)"
-      : "blue"
-}))`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  color: ${({ theme }) => theme.creamy};
-  background: ${({ gradient }) => gradient};
+import Logo from "./Logo";
 
-  & .container {
-    height: ${(props) => props.theme.headerHeight};
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 1em 0 1em;
-    max-width: 70em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+const Header = styled.header`
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
 
-  & .menu {
-    display: flex;
-    height: 100%;
-    align-items: center;
+  background-color: ${({ page }) =>
+    (page === "skills" && "#d62d2d") ||
+    (page === "about" && "#375a7f") ||
+    (page === "portfolio" && "#FF9F1C") ||
+    (page === "contacts" && "#31b5a9")};
 
-    a {
-      display: flex;
-      align-items: center;
-			text-decoration: none;
-			position: relative;
-      height: 100%;
-      padding: 0 1em 0 1em;
-			color: #ffffff;
-			/* border-bottom: 2px solid transparent; */
-			transition: all .3s ease;
-
-			&::before {
-				content: '';
-				height: 3px;
-				background-color: #ffffff;
-				position: absolute;
-				bottom: 3px;
-				width: 0;
-				transition: all .3s ease;
-			}
-
-			&:hover::before {
-				/* border-bottom: 2px solid #ffffff; */
-				width: 75%;
-				color: red;
-			}
-		}
-		
-		& a:not(last-of-type) {
-			padding-right: 0;
-		}
-  }
+  border-radius: 3px;
 `;
 
-const HomeLink = styled.div`
-  height: 100%;
+const Menu = styled.nav`
+  display: flex;
+	width: 50%;
+
+	@media (max-width: 56em) {
+		width: 60%;
+	}
+
+	@media (max-width: 46em) {
+		width: 70%;
+	}
+`;
+
+export const Item = styled.a`
+	flex: 1 1 25%;
   display: flex;
   align-items: center;
-  justify-content: center;
-	color: #ffffff;
-	text-decoration: none;
+	justify-content: center;
+  text-decoration: none;
+	color: ${(props) => props.theme.creamy};
+	box-shadow: ${({ active }) => active ? 'inset 0px 3px 0px 0px #ffffffdc' : null};
+	border-left: 1px solid ${(props) => props.theme.dark};
+
+	& span {
+		margin-left: 10px;
+		transition: color 0.2s;
+	}
+
+	:hover span {
+		color: ${({ theme }) => theme.dark}
+	}
+`;
+
+export const HomeLink = styled.div`
+
+	width: 4em;
+  display: flex;
+	justify-content: center;
+  align-items: center;
 `;
 
 const Navigation = props => {
   return (
     <Header page={props.page}>
-      <div className="container">
-        <HomeLink as={Link} to="/">
-          Home
-        </HomeLink>
-        <nav className="menu">
-          <a href="#">About</a>
-          <a href="#">Skills</a>
-          <a href="#">Portfolio</a>
-          <a href="#">Contacts</a>
-        </nav>
-      </div>
+      <HomeLink as={Link} to="/" >
+				<Logo type="home" />
+			</HomeLink>
+      <Menu>
+        <Item as={NavLink} to="/about" >
+          <Logo type="about" height="50%"  />
+          <span>About</span>
+        </Item>
+        <Item as={NavLink} to="/skills" active="true">
+          <Logo type="skills" height="50%"/>
+          <span>Skills</span>
+        </Item>
+        <Item as={NavLink} to="/portfolio">
+          <Logo type="portfolio" height="50%"/>
+          <span>Portfolio</span>
+        </Item>
+        <Item as={NavLink} to="/contacts">
+          <Logo type="contacts" height="50%"/>
+          <span>Contacts</span>
+        </Item>
+      </Menu>
     </Header>
   );
 };

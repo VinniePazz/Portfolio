@@ -5,8 +5,8 @@ import Logo from "./Logo";
 
 const LogoContainer = styled.div`
   position: absolute;
-  width: 40%;
-  height: 40%;
+  width: 35%;
+  height: 35%;
   top: 50%;
 	left: 50%;
 	background: ${({theme}) => theme.dark};

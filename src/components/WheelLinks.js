@@ -25,7 +25,7 @@ class WheelLinks extends Component {
         </PortfolioLink>
         <ContactLink as={Link} to="/contacts" opacity={opacity}>
           <h3>Контакты</h3>
-          <Logo type="contact" />
+          <Logo type="contacts" />
         </ContactLink>
       </>
     );

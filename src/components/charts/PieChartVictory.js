@@ -18,24 +18,20 @@ export default class PieChartVictory extends Component {
         <VictoryPie
           data={data}
           
-          colorScale={["tomato", "#ff8e0d", "#21d130", "#E71D36", "#2EC4B6"]}
-          cornerRadius={2}
+          colorScale={["#EDF2F4", "#ff8e0d", "#31b5a9", "#E71D36", "#141E30"]}
           startAngle={0}
           endAngle={360}
-          labels={d => d.y}
-          innerRadius={80}
+          innerRadius={100}
           labelRadius={125}
+					padAngle={2}
           // labelRadius={120}
           style={{
-            labels: { fill: "#ffffff", fontSize: 15, fontWeight: "bold" },
+            labels: { fontSize: 0, fontWeight: "bold" },
             data: {
-              stroke: d => (d.y === 25 ? "#555555" : "transparent"),
-              strokeWidth: 2,
-              fill: d => d.color
+              
             }
           }}
-          padAngle={1.5}
-          padding={30}
+          padding={40}
           events={[
             {
               target: "data",

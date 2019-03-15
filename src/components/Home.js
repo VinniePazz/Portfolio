@@ -5,7 +5,6 @@ import Slogan from "./Slogan";
 import PuzzleWheel from "./PuzzleWheel";
 
 const HomePageGrid = styled.div`
-  background-image: linear-gradient(220deg, #141E30,#12131C);
   width: 100vw;
   height: 100vh;
   overflow: hidden;
