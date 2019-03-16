@@ -50,8 +50,8 @@ const data = [
 class RadarChartRecharts extends React.Component {
   render() {
     return (
-      <ResponsiveContainer widt="100%" height="100%" minHeight={300} minWidth={300}>
-        <RadarChart outerRadius={120} data={data} onClick={(e) => console.log(e)}>
+      <ResponsiveContainer width="100%" height="100%" minHeight={300} minWidth={300}>
+        <RadarChart outerRadius={120} data={this.props.data} onClick={(e) => console.log(e)}>
           <PolarGrid outerRadius={300} polarAngles={40} polarRadius={[5,5,5,5,5,5,5]} gridType="polygon" />
           <PolarAngleAxis dataKey="subject" />
           <PolarRadiusAxis angle={30} domain={[0, 10]} tick={false}/>

@@ -18,14 +18,16 @@ const ContactsPage = () => {
   );
 };
 
-const Background = styled.div`
+const RootContainer = styled.div`
 	background-color: ${({theme}) => theme.dark};
+	height: 100vh;
+	width: 100vw;
 `;
 
 class App extends Component {
   render() {
     return (
-      <Background>
+      <RootContainer>
         <GlobalStyle />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -34,7 +36,7 @@ class App extends Component {
           <Route exact path="/portfolio" component={PortfolioPage} />
           <Route exact path="/contacts" component={ContactsPage} />
         </Switch>
-      </Background>
+      </RootContainer>
     );
   }
 }

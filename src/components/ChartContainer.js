@@ -24,40 +24,36 @@ const ChartSidebar = styled.div`
     border-bottom: 1px solid ${props => props.theme.dark};
     display: flex;
     justify-content: center;
-    align-items: center;
+		align-items: center;
+		cursor: pointer;
   }
 `;
 
 const ChartBody = styled.div`
-	overflow: hidden;
+  overflow: hidden;
 `;
 
 class ChartContainer extends Component {
+  state = {
+    buttons: ["all", "css"],
+  };
+
   render() {
     return (
       <StyledChartContainer>
         <ChartSidebar>
-          <div>
-            <Logo type="home" />
-          </div>
-          <div>
-            <Logo type="home" />
-          </div>
-          <div>
-            <Logo type="home" />
-          </div>
-          <div>
-            <Logo type="home" />
-          </div>
-          <div>
-            <Logo type="home" />
-          </div>
-          <div>
-            <Logo type="home" />
-          </div>
+          {this.state.buttons.map(type => (
+            <div onClick={() => this.props.changeChart(type)}>
+              <Logo type={type} />
+            </div>
+          ))}
         </ChartSidebar>
         <ChartBody>
-          <PieChartVictory />
+          {this.props.currentChart === "all" ? (
+            <PieChartVictory data={this.props.data} toogleItem={this.props.toogleItem} externalEventMutations={this.props.externalEventMutations} />
+          ) : (
+            <RadarChartRecharts data={this.props.data} />
+          )}
         </ChartBody>
       </StyledChartContainer>
     );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
 
@@ -20,71 +20,89 @@ const Header = styled.header`
 
 const Menu = styled.nav`
   display: flex;
-	width: 50%;
+  width: 50%;
 
-	@media (max-width: 56em) {
-		width: 60%;
-	}
+  @media (max-width: 56em) {
+    width: 60%;
+  }
 
-	@media (max-width: 46em) {
-		width: 70%;
-	}
+  @media (max-width: 46em) {
+    width: 70%;
+  }
 `;
 
 export const Item = styled.a`
-	flex: 1 1 25%;
+  flex: 1 1 25%;
   display: flex;
   align-items: center;
-	justify-content: center;
+  justify-content: center;
   text-decoration: none;
-	color: ${(props) => props.theme.creamy};
-	box-shadow: ${({ active }) => active ? 'inset 0px 3px 0px 0px #ffffffdc' : null};
-	border-left: 1px solid ${(props) => props.theme.dark};
+  color: ${props => props.theme.creamy};
+  box-shadow: ${({ active }) =>
+    active ? "inset 0px -3px 0px 0px #ffffffdc" : null};
+  border-left: 1px solid ${props => props.theme.dark};
+  outline: none;
 
-	& span {
-		margin-left: 10px;
-		transition: color 0.2s;
-	}
+  & span {
+    margin-left: 10px;
+    transition: color 0.2s;
+  }
 
-	:hover span {
-		color: ${({ theme }) => theme.dark}
-	}
+  :hover span {
+    color: ${({ theme }) => theme.dark};
+  }
 `;
 
 export const HomeLink = styled.div`
-
-	width: 4em;
+  width: 4em;
   display: flex;
-	justify-content: center;
+  justify-content: center;
   align-items: center;
 `;
 
-const Navigation = props => {
-  return (
-    <Header page={props.page}>
-      <HomeLink as={Link} to="/" >
-				<Logo type="home" />
-			</HomeLink>
-      <Menu>
-        <Item as={NavLink} to="/about" >
-          <Logo type="about" height="50%"  />
-          <span>About</span>
-        </Item>
-        <Item as={NavLink} to="/skills" active="true">
-          <Logo type="skills" height="50%"/>
-          <span>Skills</span>
-        </Item>
-        <Item as={NavLink} to="/portfolio">
-          <Logo type="portfolio" height="50%"/>
-          <span>Portfolio</span>
-        </Item>
-        <Item as={NavLink} to="/contacts">
-          <Logo type="contacts" height="50%"/>
-          <span>Contacts</span>
-        </Item>
-      </Menu>
-    </Header>
-  );
-};
+class Navigation extends React.Component {
+
+	componentDidMount() {
+		console.log('nav is mounted')
+	}
+	componentDidUpdate() {
+		console.log('nav is updated')
+	}
+
+	shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.page !== nextProps.page) {
+      return true;
+    }
+    return false;
+  }
+
+  render() {
+    return (
+      <Header page={this.props.page}>
+        <HomeLink as={Link} to="/">
+          <Logo type="home" />
+        </HomeLink>
+        <Menu>
+          <Item as={NavLink} to="/about">
+            <Logo type="about" height="50%" />
+            <span>About</span>
+          </Item>
+          <Item as={NavLink} to="/skills" active="true">
+            <Logo type="skills" height="50%" />
+            <span>Skills</span>
+          </Item>
+          <Item as={NavLink} to="/portfolio">
+            <Logo type="portfolio" height="50%" />
+            <span>Portfolio</span>
+          </Item>
+          <Item as={NavLink} to="/contacts">
+            <Logo type="contacts" height="50%" />
+            <span>Contacts</span>
+          </Item>
+        </Menu>
+      </Header>
+    );
+  }
+}
 
 export default Navigation;
