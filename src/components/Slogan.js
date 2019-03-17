@@ -61,7 +61,7 @@ const Slogan = () => {
     <>
       <H1>{renderSpans("помогите", 0)}</H1>
       <Smoky>{renderSpans("смоки", 1)}</Smoky>
-      <H1>{renderSpans("стать веб -", 2)}</H1>
+      <H1>{renderSpans("стать", 2)}{' '}веб-</H1>
       <H1>{renderSpans("разработчиком", 3)}</H1>
     </>
   );

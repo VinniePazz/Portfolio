@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import posed from 'react-pose'
+import posed from "react-pose";
 import ProgressBar from "./styled/ProgressBar";
 import Logo from "./Logo";
 
@@ -48,8 +48,8 @@ const Triangle = styled.div`
 `;
 
 const AnimatedContent = posed.div({
-	closed: { height: 0 },
-	open: { height: 'auto' }
+  closed: { height: 0 },
+  open: { height: "auto" }
 });
 
 const Content = styled(AnimatedContent)`
@@ -62,9 +62,6 @@ const Content = styled(AnimatedContent)`
 `;
 
 const SkillsSidebar = props => {
-
-
-
   return (
     <StyledSkillsSidebar>
       {props.data.map(({ id, percentage, color, x }) => (
@@ -78,7 +75,10 @@ const SkillsSidebar = props => {
               <Triangle isOpen={id === props.itemToReveal ? true : false} />
             </Arrow>
           </ListItem>
-          <Content isOpen={id === props.itemToReveal ? true : false} pose={id === props.itemToReveal ? 'open' : 'closed'}>
+          <Content
+            isOpen={id === props.itemToReveal ? true : false}
+            pose={id === props.itemToReveal ? "open" : "closed"}
+          >
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium
             deleniti, sit veritatis totam iste, vitae dolore ab adipisci quos
             placeat aspernatur sequi facilis fugiat quaerat saepe architecto
