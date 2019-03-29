@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import posed, { PoseGroup } from "react-pose";
-import _ from 'lodash'
+import posed from "react-pose";
 
 import WheelLinks from "./WheelLinks";
 import WheelCircle from "./WheelCircle";

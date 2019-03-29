@@ -5,8 +5,8 @@ import Slogan from "./Slogan";
 import PuzzleWheel from "./PuzzleWheel";
 
 const HomePageGrid = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 
 	& .container {

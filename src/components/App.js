@@ -35,6 +35,7 @@ class App extends Component {
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/portfolio" component={PortfolioPage} />
           <Route exact path="/contacts" component={ContactsPage} />
+          <Route render={() => <div>ERORR 404</div>} />
         </Switch>
       </RootContainer>
     );
