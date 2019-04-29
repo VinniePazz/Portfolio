@@ -7,11 +7,13 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
+		min-height: 100vh;
+		max-width: 100vw;
+		overflow-x: hidden;
 		font-family: 'Oswald', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     color: #393939;
-		overflow-x: hidden;
 		background: #EDF2F4;
 	}
 
