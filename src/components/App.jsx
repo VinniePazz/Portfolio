@@ -7,6 +7,8 @@ import { transform } from "popmotion";
 import Landing from "./Landing";
 import About from "./About";
 
+import AnimatedRoutes from "./AnimatedRoutes";
+
 const { pipe, clamp, interpolate, blendColor } = transform;
 
 const PoseContext = React.createContext();
@@ -150,7 +152,7 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <Initial pose={this.choosePose()}>
+        <Initial pose={this.choosePose()}>
           <Slogan>
             <Heading type="name">
               <Text>dima</Text>
@@ -161,19 +163,10 @@ class App extends Component {
               <Box />
             </Heading>
           </Slogan>
-        </Initial> */}
+        </Initial>
 
         <Router>
-					<AnimatedPages>
-          <Switch>
-            <Route
-              exact
-              path="/about"
-              component={About}
-              pose={this.state.pose}
-            />
-          </Switch>
-          <Route exact path="/" component={Landing} />
+          <AnimatedRoutes />
         </Router>
       </>
     );

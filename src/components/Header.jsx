@@ -1,8 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import posed from "react-pose";
 
-const StyledHeader = styled.header`
+const AnimatedHeader = posed.div({
+  enter: {
+    opacity: 1,
+    delay: 1000,
+    transition: { duration: 200, ease: "easeIn" }
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 200, ease: "easeIn" }
+  }
+});
+
+const StyledHeader = styled(AnimatedHeader)`
   max-width: 1140px;
   margin: 0 auto;
   padding: 2em 1em;
@@ -14,36 +27,21 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
 
-const About = styled.a`
-  cursor: pointer;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #d8dbe2;
-  letter-spacing: 0.13rem;
-  font-weight: 600;
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    left: 0;
-    bottom: -5px;
-    transform: scaleX(0);
-    background: #d8dbe2;
-    transform-origin: 100%;
+  a {
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #d8dbe2;
+    letter-spacing: 0.13rem;
+    font-weight: 600;
+    position: relative;
     transition: all 0.5s ease;
   }
 
-  &:hover {
-    &::after {
-      transform: scaleX(1);
-      transform-origin: 0%;
-    }
+  a:hover {
+    color: ${({ theme }) => theme.pallette.main};
   }
 `;
 
@@ -52,8 +50,8 @@ const MainLogo = styled.div`
   width: 50px;
   display: flex;
   flex-direction: column;
-	cursor: pointer;
-	transform: translateX(25%);
+  cursor: pointer;
+  transform: translateX(25%);
 
   div {
     height: 50%;
@@ -78,17 +76,15 @@ const MainLogo = styled.div`
   }
 `;
 
+const About = styled.a`
+`;
+
+const Contact = styled.a``;
+
 const Header = () => {
   return (
     <StyledHeader>
-      <MainLogo
-        onClick={() =>
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-          })
-        }
-      >
+      <MainLogo as={Link} to="/">
         <div />
         <div />
       </MainLogo>

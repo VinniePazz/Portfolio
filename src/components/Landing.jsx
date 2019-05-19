@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import posed from "react-pose";
 import _ from "lodash";
 
 import Layout from "./Layout";
@@ -16,6 +17,19 @@ const Container = styled.div`
   padding: 0 1em;
 `;
 
+const AnimatedLanding = posed.div({
+  enter: {
+    opacity: 1,
+    x: "0%",
+    transition: { duration: 1000, ease: "easeIn" }
+  },
+  exit: {
+    opacity: 0,
+    x: "-100%",
+    transition: { duration: 1000, ease: "easeIn" }
+  }
+});
+
 class Landing extends Component {
   constructor(props) {
     super(props);
@@ -29,16 +43,14 @@ class Landing extends Component {
   }
 
   handleScroll = _.throttle(e => {
-		
     const sectionOne = this.sectionOne.current.clientHeight - 100;
     const sectionTwo =
       this.sectionTwo.current.clientHeight +
       this.sectionTwo.current.offsetTop -
       100;
-    const sectionThree =
-      this.sectionThree.current.offsetTop - 300;
+    const sectionThree = this.sectionThree.current.offsetTop - 300;
     const offsetTop = window.pageYOffset;
-		console.log(offsetTop, sectionThree)
+    console.log(offsetTop, sectionThree);
     if (offsetTop <= sectionOne && this.state.activeSection !== 0) {
       this.setState({
         activeSection: 0
@@ -62,30 +74,47 @@ class Landing extends Component {
     }
   }, 200);
 
+  handlePress = e => {
+    if (e.key === "1") {
+      this.sectionTwo.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+    if (e.key === "2") {
+      this.sectionThree.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  };
+
   componentDidMount() {
-		window.addEventListener("scroll", this.handleScroll, true);
-		this.handleScroll();
+    window.addEventListener("scroll", this.handleScroll, true);
+    window.addEventListener("keypress", this.handlePress, true);
+    this.handleScroll();
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll, true);
+    window.removeEventListener("scroll", this.handlePress, true);
   }
 
   render() {
     return (
       <>
         <Header />
-        <Container>
-          <div ref={this.sectionOne}>
-            <SectionOne />
-          </div>
-          <div ref={this.sectionTwo}>
-            <SectionTwo />
-          </div>
-          <div ref={this.sectionThree}>
-            <SectionThree />
-          </div>
-        </Container>
+        <AnimatedLanding>
+          <Container>
+            <section ref={this.sectionOne}>
+              <SectionOne />
+            </section>
+            <section ref={this.sectionTwo}>
+              <SectionTwo />
+            </section>
+            <section ref={this.sectionThree}>
+              <SectionThree />
+            </section>
+          </Container>
+        </AnimatedLanding>
         <Footer
           activeSection={this.state.activeSection}
           toSectionTwo={() =>
@@ -93,7 +122,7 @@ class Landing extends Component {
               behavior: "smooth"
             })
           }
-					toSectionThree={() =>
+          toSectionThree={() =>
             this.sectionThree.current.scrollIntoView({
               behavior: "smooth"
             })

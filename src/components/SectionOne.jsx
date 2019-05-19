@@ -4,6 +4,7 @@ import posed, { PoseGroup } from "react-pose";
 import _ from "lodash";
 
 import { MainButton } from "../styled-components";
+import RippleHeading from "./RippleHeading";
 
 const Hero = styled.div`
   min-height: 100vh;
@@ -21,31 +22,6 @@ const Wrapper = styled.div`
   }
 `;
 
-const TitleContainer = styled.div`
-  position: relative;
-`;
-
-const TitleWrapper = styled.div`
-  color: #d8dbe2;
-`;
-
-const CloneWrapper = styled(TitleWrapper)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #73bbbb;
-  transition: all 0.2s linear;
-`;
-
-const HeadingOne = styled.h2`
-  font-size: 3rem;
-`;
-
-const HeadingTwo = styled.h1`
-  font-size: 4.5rem;
-  margin: 0;
-`;
-
 const Paragraph = styled.p`
   text-align: right;
   margin-top: 1rem;
@@ -53,12 +29,6 @@ const Paragraph = styled.p`
 `;
 
 class SectionOne extends React.Component {
-  state = {
-    pose: 0,
-    x: 0,
-    y: 0
-  };
-
   componentDidMount() {
     setTimeout(() => {
       this.setState({ pose: 1 });
@@ -81,55 +51,18 @@ class SectionOne extends React.Component {
   handleClick = () => {
     const height = this.refs.Hero.clientHeight;
     window.scrollTo({
-      top: 635,
+      top: height,
       behavior: "smooth"
     });
   };
 
-  handleMouseMove = e => {
-    const width = this.refs.titleContainer.clientWidth;
-    const height = this.refs.titleContainer.clientHeight;
-    const offsetX = (e.nativeEvent.offsetX / width) * 100;
-    const offsetY = (e.nativeEvent.offsetY / height) * 100;
-    this.setState({
-      x: Math.round(offsetX),
-      y: Math.round(offsetY)
-    });
-  };
-
-  handleMouseOut = () => {
-    this.setState({
-      x: 0,
-      y: 0
-    });
-  };
-
   render() {
-    const { x, y } = this.state;
     return (
       <Hero ref="Hero">
         <Wrapper>
-          <TitleContainer
-            onMouseMove={this.handleMouseMove}
-            onMouseOut={this.handleMouseOut}
-            ref="titleContainer"
-          >
-            <TitleWrapper>
-              <HeadingOne>DIMA</HeadingOne>
-              <HeadingTwo>SMAKOUZ</HeadingTwo>
-            </TitleWrapper>
-            <CloneWrapper
-              style={{ clipPath: `polygon(0 0, ${x}% 0, ${y}% 100%, 0 100%)` }}
-            >
-              <HeadingOne>DIMA</HeadingOne>
-              <HeadingTwo>SMAKOUZ</HeadingTwo>
-            </CloneWrapper>
-          </TitleContainer>
-
-          <Paragraph pose={this.choosePose()}>
-            web developer from Kyiv
-          </Paragraph>
-          <MainButton pose={this.choosePose()} onClick={this.handleClick}>
+          <RippleHeading type="main" />
+          <Paragraph>web developer from Kyiv</Paragraph>
+          <MainButton onClick={this.handleClick}>
             projects
             <span />
             <span />

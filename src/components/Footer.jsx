@@ -1,10 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
+import posed from "react-pose";
 
 import Icon from "./Icon";
 
-const StyledFooter = styled.footer`
+const AnimatedFooter = posed.div({
+  enter: {
+    opacity: 1,
+    transition: { duration: 200, ease: "easeIn" }
+  },
+  exit: {
+    opacity: 0,
+
+    transition: { duration: 200, ease: "easeIn" }
+  }
+});
+
+const StyledFooter = styled(AnimatedFooter)`
   max-width: 1140px;
   margin: 0 auto;
   padding: 2em 1em;
@@ -28,8 +41,8 @@ const ProjectLink = styled.a`
       : "#fdfffcd4"};
   margin-right: 3em;
   font-size: 0.8rem;
-	font-weight: 500;
-	text-transform: uppercase;
+  font-weight: 700;
+  text-transform: uppercase;
   transition: color 0.2s ease;
   cursor: pointer;
 
@@ -71,7 +84,12 @@ const Footer = ({ activeSection, toSectionTwo, toSectionThree }) => {
       </Pages>
       <Social>
         {socialLinks.map(link => (
-          <Icon key={link.name} type={link.name} linkTo={link.linkTo} activeSection={activeSection} />
+          <Icon
+            key={link.name}
+            type={link.name}
+            linkTo={link.linkTo}
+            activeSection={activeSection}
+          />
         ))}
       </Social>
     </StyledFooter>

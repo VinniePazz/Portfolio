@@ -5,7 +5,7 @@ export const MainButton = styled.button`
   background-color: transparent;
   align-self: center;
   padding: 1.5em 3em;
-  margin-top: 3rem;
+  margin-top: 5rem;
   font-family: Poppins, sans-serif;
   font-size: 0.8rem;
   letter-spacing: 2px;

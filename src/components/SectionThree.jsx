@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import RippleHeading from "./RippleHeading";
+
 const Container = styled.div`
   min-height: 100vh;
   display: flex;
@@ -8,6 +10,16 @@ const Container = styled.div`
 
 const Description = styled.div`
   width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	padding-left: 2em;
+
+	p {
+		text-align: right;
+		margin-top: 2em;
+	}
 `;
 
 const Media = styled.div`
@@ -15,24 +27,15 @@ const Media = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-	justify-content: center;
-	align-items: flex-end;
+  justify-content: center;
+  align-items: flex-end;
 `;
 
 const VideoWrapper = styled.div`
   width: 90%;
   height: auto;
   position: relative;
-  &:after {
-    position: absolute;
-    top: -15%;
-    left: -10%;
-    content: "";
-    width: 70%;
-    height: 130%;
-    background: #1f8a8a;
-    z-index: -1;
-  }
+	box-shadow: -20px 20px 0px #3aabab;
 `;
 
 const SectionTwo = () => {
@@ -48,8 +51,8 @@ const SectionTwo = () => {
         </VideoWrapper>
       </Media>
       <Description>
-        <h1 />
-        <p />
+        <RippleHeading type="kievents" content="Ki - events" />
+        <p>social-network clone with realtime changing functionality</p>
       </Description>
     </Container>
   );
