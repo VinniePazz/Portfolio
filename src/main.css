@@ -1,54 +1,31 @@
-
 html {
-	box-sizing: border-box;
-	overflow-x: hidden;
-	font-size: 16px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-size: 16px;
 }
 
 body {
   margin: 0;
   padding: 0;
-	font-family: Poppins, sans-serif;
-	font-weight: 400;
-  color: #fafafa;
-	background: #161616;
-	overflow-x: hidden;
-	position: relative;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  color: #d8dbe2;
+  background: #1d1d2b;
+  overflow-x: hidden;
+  position: relative;
 }
-
-body::before {
-	content: '';
-	width: 1px;
-	background: rgba(128, 128, 128, 0.10);
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 40%;
-	z-index: -999;
-}
-
-/* body::after {
-	content: '';
-	width: 1px;
-	background: rgba(128, 128, 128, 0.15);
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 60%;
-	z-index: -999;
-} */
 
 html,
 body {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-html::-webkit-scrollbar { 
-	display: none; 
+html::-webkit-scrollbar {
+  display: none;
 }
 
-body::-webkit-scrollbar { 
-	display: none; 
+body::-webkit-scrollbar {
+  display: none;
 }
 
 * {
@@ -60,4 +37,20 @@ body::-webkit-scrollbar {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 14px;
+  }
 }

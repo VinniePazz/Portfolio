@@ -7,7 +7,8 @@ const SVG = styled.svg`
   height: ${({ height }) => height || "20px"};
   transition: fill 0.2s;
   &:hover {
-    fill: ${({ activeSection }) => activeSection === 2 ? '#1f8a8a' : '#e76f51b8'} ;
+    fill: ${({ activeSection }) =>
+      activeSection === 2 ? "#1f8a8a" : "#e76f51b8"};
   }
 `;
 

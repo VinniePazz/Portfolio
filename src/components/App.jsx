@@ -129,12 +129,12 @@ class App extends Component {
     pose: 0
   };
 
-  componentDidMount() {
-    this.setState({ pose: 1 });
-    setTimeout(() => {
-      this.setState({ pose: 2 });
-    }, 2000);
-  }
+  // componentDidMount() {
+  //   this.setState({ pose: 1 });
+  //   setTimeout(() => {
+  //     this.setState({ pose: 2 });
+  //   }, 2000);
+  // }
 
   choosePose = () => {
     switch (this.state.pose) {
@@ -152,7 +152,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Initial pose={this.choosePose()}>
+        {/* <Initial pose={this.choosePose()}>
           <Slogan>
             <Heading type="name">
               <Text>dima</Text>
@@ -163,10 +163,10 @@ class App extends Component {
               <Box />
             </Heading>
           </Slogan>
-        </Initial>
+        </Initial> */}
 
         <Router>
-          <AnimatedRoutes />
+          <AnimatedRoutes language={this.state.language} />
         </Router>
       </>
     );

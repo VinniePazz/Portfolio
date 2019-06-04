@@ -1,61 +1,77 @@
-import React from "react";
-import styled from "styled-components";
+import React, { Component } from "react";
 
-import RippleHeading from "./RippleHeading";
+import {
+  SectionContainer,
+  InfoBlock,
+  Heading,
+  MediaBlock,
+  VideoWrapper,
+  PlayButton,
+  ActionBar,
+  Description,
+  Technologies,
+  Language
+} from "../styled-components";
 
-const Container = styled.div`
-  min-height: 100vh;
-  display: flex;
-`;
+import { VisitLink, GithubLink } from "../styled-components";
 
-const Description = styled.div`
-  width: 40%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-end;
-	padding-left: 2em;
+class SectionThree extends Component {
+  constructor(props) {
+    super(props);
+    this.videoRef = React.createRef();
+    this.state = {
+      pause: false
+    };
+  }
 
-	p {
-		text-align: right;
-		margin-top: 2em;
-	}
-`;
+  handleClick = () => {
+    const video = this.videoRef.current;
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+    this.setState(prev => ({ pause: !prev.pause }));
+  };
 
-const Media = styled.div`
-  width: 60%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-`;
+  render() {
+    return (
+      <SectionContainer>
+        <MediaBlock>
+          <VideoWrapper onClick={this.handleClick}>
+            {this.state.pause && <PlayButton color="azure" />}
+            <video width="100%" loop autoPlay muted ref={this.videoRef}>
+              <source src="/Ki-events.mp4" type="video/mp4" />
+              If you are reading this, it is because your browser does not
+              support the HTML5 video element.
+            </video>
+          </VideoWrapper>
+        </MediaBlock>
+        <InfoBlock section="ki-events">
+          <Heading section="ki-events">Ki-events</Heading>
+          <Description>Social network with realtime changings</Description>
+          <Technologies>#React, #Redux, #Firebase, #Semantic-UI</Technologies>
+          <Language>language: ru</Language>
+          <ActionBar>
+            <VisitLink
+              section="ki-events"
+              href="https://kievents-3bba0.firebaseapp.com/"
+              target="blank"
+            >
+              demo
+            </VisitLink>
+            <GithubLink
+              section="ki-events"
+              href="https://github.com/VinniePazz/Ki-events"
+              target="blank"
+            >
+              source
+            </GithubLink>
+          </ActionBar>
+        </InfoBlock>
+      </SectionContainer>
+    );
+  }
+}
 
-const VideoWrapper = styled.div`
-  width: 90%;
-  height: auto;
-  position: relative;
-	box-shadow: -20px 20px 0px #3aabab;
-`;
-
-const SectionTwo = () => {
-  return (
-    <Container>
-      <Media>
-        <VideoWrapper>
-          <video width="100%" loop autoPlay muted>
-            <source src="/Ki-events.mp4" type="video/mp4" />
-            If you are reading this, it is because your browser does not support
-            the HTML5 video element.
-          </video>
-        </VideoWrapper>
-      </Media>
-      <Description>
-        <RippleHeading type="kievents" content="Ki - events" />
-        <p>social-network clone with realtime changing functionality</p>
-      </Description>
-    </Container>
-  );
-};
-
-export default SectionTwo;
+export default SectionThree;

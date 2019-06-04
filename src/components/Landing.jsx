@@ -3,7 +3,6 @@ import styled from "styled-components";
 import posed from "react-pose";
 import _ from "lodash";
 
-import Layout from "./Layout";
 import SectionOne from "./SectionOne";
 import SectionTwo from "./SectionTwo";
 import SectionThree from "./SectionThree";
@@ -12,7 +11,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const Container = styled.div`
-  max-width: 1140px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1em;
 `;
@@ -20,12 +19,10 @@ const Container = styled.div`
 const AnimatedLanding = posed.div({
   enter: {
     opacity: 1,
-    x: "0%",
-    transition: { duration: 1000, ease: "easeIn" }
+    transition: { duration: 1200, ease: "easeOut" }
   },
   exit: {
     opacity: 0,
-    x: "-100%",
     transition: { duration: 1000, ease: "easeIn" }
   }
 });
@@ -101,11 +98,14 @@ class Landing extends Component {
   render() {
     return (
       <>
-        <Header />
+        <Header
+          activeSection={this.state.activeSection}
+          changeLanguage={this.props.changeLanguage}
+        />
         <AnimatedLanding>
           <Container>
             <section ref={this.sectionOne}>
-              <SectionOne />
+              <SectionOne language={this.props.language} />
             </section>
             <section ref={this.sectionTwo}>
               <SectionTwo />

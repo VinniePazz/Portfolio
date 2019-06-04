@@ -7,11 +7,17 @@ import About from "./About";
 import ProjectOne from "./ProjectOne";
 import Header from "./Header";
 
-const RoutesContainer = posed.div({
-
-});
+const RoutesContainer = posed.div({});
 
 class AnimatedRoutes extends Component {
+  state = {
+    language: "en"
+  };
+
+  changeLanguage = language => {
+    this.setState({ language });
+  };
+
   render() {
     return (
       <Route
@@ -20,8 +26,28 @@ class AnimatedRoutes extends Component {
             <PoseGroup>
               <RoutesContainer key={location.pathname}>
                 <Switch location={location}>
-                  <Route exact path="/" component={Landing} key="landing" />
-                  <Route exact path="/about" component={About} key="about" />
+                  <Route
+                    exact
+                    path="/"
+                    key="landing"
+                    component={() => (
+                      <Landing
+                        language={this.state.language}
+                        changeLanguage={this.changeLanguage}
+                      />
+                    )}
+                  />
+                  <Route
+                    exact
+                    path="/about"
+                    key="about"
+                    component={() => (
+                      <About
+                        language={this.state.language}
+                        changeLanguage={this.changeLanguage}
+                      />
+                    )}
+                  />
                 </Switch>
               </RoutesContainer>
             </PoseGroup>

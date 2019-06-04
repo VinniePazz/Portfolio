@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import posed, { PoseGroup } from "react-pose";
-import _ from "lodash";
 
 import { MainButton } from "../styled-components";
 import RippleHeading from "./RippleHeading";
@@ -15,39 +13,16 @@ const Hero = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  letter-spacing: 0.2em;
-
-  * {
-    line-height: 100%;
-  }
+  letter-spacing: 0.3rem;
+  align-items: center;
 `;
 
 const Paragraph = styled.p`
-  text-align: right;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   color: #e76f51b8;
 `;
 
 class SectionOne extends React.Component {
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ pose: 1 });
-    }, 5500);
-  }
-
-  choosePose = () => {
-    switch (this.state.pose) {
-      case 0:
-        return "initial";
-      case 1:
-        return "visible";
-      case 2:
-        return "hidden";
-      default:
-        return "visible";
-    }
-  };
-
   handleClick = () => {
     const height = this.refs.Hero.clientHeight;
     window.scrollTo({
@@ -60,8 +35,12 @@ class SectionOne extends React.Component {
     return (
       <Hero ref="Hero">
         <Wrapper>
-          <RippleHeading type="main" />
-          <Paragraph>web developer from Kyiv</Paragraph>
+          <RippleHeading />
+          <Paragraph>
+            {this.props.language === "en"
+              ? "web developer from Kyiv"
+              : "веб-разработчик из Киева"}
+          </Paragraph>
           <MainButton onClick={this.handleClick}>
             projects
             <span />

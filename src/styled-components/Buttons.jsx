@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { above, below } from "./media";
 
 export const MainButton = styled.button`
   border: none;
@@ -77,5 +78,86 @@ export const MainButton = styled.button`
   &:hover span:nth-child(4) {
     bottom: -50%;
     right: 0;
+  }
+`;
+
+const Button = styled.a`
+  display: inline-block;
+  color: #fafafa;
+  padding: 0.8em 2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+`;
+
+export const VisitLink = styled(Button)`
+  border: 2px solid
+    ${({ section, theme }) =>
+      section === "vinyl"
+        ? `${theme.pallette.main}`
+        : `${theme.pallette.secondary}`};
+  background: ${({ section, theme }) =>
+    section === "vinyl"
+      ? `${theme.pallette.main}`
+      : `${theme.pallette.secondary}`};
+
+  ${above.large`
+    &:hover {
+    border: 2px solid
+      ${({ section, theme }) =>
+        section === "vinyl"
+          ? `${theme.pallette.mainDarker}`
+          : `${theme.pallette.secondaryDarker}`};
+    background: ${({ section, theme }) =>
+      section === "vinyl"
+        ? `${theme.pallette.mainDarker}`
+        : `${theme.pallette.secondaryDarker}`};
+    box-shadow: 0 0 5px 5px #1a1a23;
+  }
+
+  &:active {
+    box-shadow: 0 0 1px #1a1a23;
+
+    border: 2px solid
+      ${({ section, theme }) =>
+        section === "vinyl"
+          ? `${theme.pallette.main}`
+          : `${theme.pallette.secondary}`};
+    background: ${({ section, theme }) =>
+      section === "vinyl"
+        ? `${theme.pallette.main}`
+        : `${theme.pallette.secondary}`};
+    box-shadow: 0 0 0px 0px #1a1a23;
+  }
+  `}
+`;
+
+export const GithubLink = styled(Button)`
+  border: 2px solid
+    ${({ section, theme }) =>
+      section === "vinyl"
+        ? `${theme.pallette.mainDarker}`
+        : `${theme.pallette.secondaryDarker}`};
+  margin-left: 1.5em;
+  color: #fafafa;
+
+  &:hover {
+    border: 2px solid
+      ${({ section, theme }) =>
+        section === "vinyl"
+          ? `${theme.pallette.main}`
+          : `${theme.pallette.secondary}`};
+    background-color: ${({ section, theme }) =>
+      section === "vinyl"
+        ? `${theme.pallette.main}`
+        : `${theme.pallette.secondary}`};
   }
 `;
