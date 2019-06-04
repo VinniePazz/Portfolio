@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import posed from "react-pose";
 
-import { below } from "../styled-components";
+import { below, large } from "../styled-components";
 import Icon from "./Icon";
 
 const AnimatedFooter = posed.div({
@@ -33,6 +33,10 @@ const StyledFooter = styled(AnimatedFooter)`
   ${below.medium`
     background-color: #1d1d2b;
   `}
+
+  ${large`
+    background-color: #1d1d2b;
+  `}
 `;
 
 const Pages = styled.ul`
@@ -41,6 +45,10 @@ const Pages = styled.ul`
 
   ${below.medium`
     flex-direction: row;
+  `}
+
+  ${large`
+    display: none;
   `}
 `;
 
@@ -72,10 +80,21 @@ const Social = styled.ul`
   display: flex;
   flex-wrap: wrap;
   width: 70px;
+
+  ${below.medium`
+    flex-wrap: no-wrap;
+    width: auto;
+  `}
+
+  ${large`
+    flex-wrap: no-wrap;
+    width: 100%;
+    justify-content: center;
+  `}
 `;
 
 const socialLinks = [
-  { name: "linkedin", linkTo: "#" },
+  { name: "linkedin", linkTo: "https://www.linkedin.com/in/dima-smakouz-9ab590188/" },
   { name: "github", linkTo: "https://github.com/VinniePazz" },
   {
     name: "mail",

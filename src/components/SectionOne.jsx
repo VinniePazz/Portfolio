@@ -32,17 +32,20 @@ class SectionOne extends React.Component {
   };
 
   render() {
+    const { language } = this.props;
     return (
       <Hero ref="Hero">
         <Wrapper>
-          <RippleHeading />
+          <RippleHeading language={language} />
           <Paragraph>
-            {this.props.language === "en"
+            {language === "en"
               ? "web developer from Kyiv"
               : "веб-разработчик из Киева"}
           </Paragraph>
           <MainButton onClick={this.handleClick}>
-            projects
+            {language === "en"
+              ? "projects"
+              : "проекты"}
             <span />
             <span />
             <span />

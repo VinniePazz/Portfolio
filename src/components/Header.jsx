@@ -56,7 +56,7 @@ const About = styled.a`
   }
 `;
 
-const Header = ({ activeSection, changeLanguage }) => {
+const Header = ({ activeSection, changeLanguage, language }) => {
   return (
     <StyledHeader>
       <MainLogo
@@ -68,7 +68,7 @@ const Header = ({ activeSection, changeLanguage }) => {
         <div />
       </MainLogo>
       <About as={Link} to="/about" activeSection={activeSection}>
-        about
+        {language === "en" ? "about" : "обо мне"}
       </About>
       <Language activeSection={activeSection} changeLanguage={changeLanguage} />
     </StyledHeader>

@@ -35,6 +35,7 @@ class SectionThree extends Component {
   };
 
   render() {
+    const { language } = this.props;
     return (
       <SectionContainer>
         <MediaBlock>
@@ -49,23 +50,39 @@ class SectionThree extends Component {
         </MediaBlock>
         <InfoBlock section="ki-events">
           <Heading section="ki-events">Ki-events</Heading>
-          <Description>Social network with realtime changings</Description>
+          <Description>
+            {language === "en"
+              ? "Social network with realtime changings"
+              : "Социальная сеть с изменениями в реальном времени"}
+          </Description>
           <Technologies>#React, #Redux, #Firebase, #Semantic-UI</Technologies>
-          <Language>language: ru</Language>
+          <Language>
+            {language === "en" ? "language: ru" : "язык: русский"}
+          </Language>
           <ActionBar>
             <VisitLink
               section="ki-events"
               href="https://kievents-3bba0.firebaseapp.com/"
               target="blank"
             >
-              demo
+              <span />
+              <span />
+              <span />
+              <span />
+              {language === "en" ? "demo" : "демо"}
             </VisitLink>
             <GithubLink
               section="ki-events"
               href="https://github.com/VinniePazz/Ki-events"
               target="blank"
             >
-              source
+              {language === "en" ? "source" : "код"}
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
             </GithubLink>
           </ActionBar>
         </InfoBlock>

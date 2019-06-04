@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
+import { below, large } from "../styled-components";
 import Linkedin from "./icons/Linkedin";
 import Github from "./icons/Github";
 import Mail from "./icons/Mail";
@@ -8,6 +9,18 @@ import Pdf from "./icons/Pdf";
 
 const Link = styled.a`
   padding: 0.4rem;
+
+  ${below.medium`
+    padding: 0 0.8rem;
+  `}
+
+  ${below.small`
+    padding: 0 0.6rem;
+  `}
+
+  ${large`
+    padding: 0 1rem;
+   `}
 `;
 
 class Icon extends Component {

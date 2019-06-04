@@ -20,9 +20,13 @@ const Wrapper = styled(AnimatedWrapper)`
 const UtilContainer = styled.div`
   width: 80%;
   margin-left: auto;
-  border-left: 1px solid #d8dbe2;
-  padding: 4rem 1.5rem;
+  border-left: 1px solid #fafafa4a;
+  padding: 5rem 1.5rem;
   font-family: monospace;
+
+  @media(min-height: 900px) {
+    padding-top: 8rem;
+  }
 `;
 
 const Line = styled(AnimatedLine)`
@@ -98,7 +102,7 @@ const Cursor = styled.span`
   animation: ${blink} 1s linear infinite;
 `;
 
-const CodeAbout = () => {
+const CodeAbout = ({ language }) => {
   return (
     <Wrapper>
       <UtilContainer>
@@ -108,9 +112,19 @@ const CodeAbout = () => {
         </Line>
         <EmptyLine n={2}>.</EmptyLine>
         <Comments>
-          <Line n={3}>//Ambitious person </Line>
-          <Line n={4}>//who set himself a huge goal - </Line>
-          <Line n={5}>//become a professional web developer</Line>
+          {language === "en" ? (
+            <>
+              <Line n={3}>//Ambitious person </Line>
+              <Line n={4}>//who set himself a huge goal - </Line>
+              <Line n={5}>//become a professional web developer</Line>
+            </>
+          ) : (
+            <>
+              <Line n={3}>//Амбициозный парень, </Line>
+              <Line n={4}>//который поставил перед собой цель - </Line>
+              <Line n={5}>//стать профессиональным веб-разработчиком</Line>
+            </>
+          )}
         </Comments>
 
         <EmptyLine n={6}>.</EmptyLine>
@@ -171,7 +185,7 @@ const CodeAbout = () => {
           <Violet>return </Violet>
           {"["}{" "}
           <Grass>
-            'HTML/CSS/JS', 'React.js', 'Redux', 'Node.js', 'MongoDB/Mongoose',
+            'HTML/CSS/JS', 'React.js', 'Redux', 'Node.js', 'Express', 'MongoDB/Mongoose',
             'Firebase/Firestore', 'Webpack/Gulp', 'npm', 'SCSS',
             'Styled-Components' 'Material UI/Semantic UI/Bootstrap 4',
             'D3/Victory', 'GIT/Github', 'Figma', 'Avocode', 'Inkscape'{" "}

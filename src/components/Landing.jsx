@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import posed from "react-pose";
 import _ from "lodash";
+import { withRouter } from "react-router-dom";
 
 import SectionOne from "./SectionOne";
 import SectionTwo from "./SectionTwo";
@@ -88,6 +89,11 @@ class Landing extends Component {
     window.addEventListener("scroll", this.handleScroll, true);
     window.addEventListener("keypress", this.handlePress, true);
     this.handleScroll();
+    if(this.props.location.state && this.props.location.state.fromAboutPage) {
+      this.sectionTwo.current.scrollIntoView({
+        behavior: "smooth"
+      })
+    }
   }
 
   componentWillUnmount() {
@@ -101,6 +107,7 @@ class Landing extends Component {
         <Header
           activeSection={this.state.activeSection}
           changeLanguage={this.props.changeLanguage}
+          language={this.props.language}
         />
         <AnimatedLanding>
           <Container>
@@ -108,10 +115,10 @@ class Landing extends Component {
               <SectionOne language={this.props.language} />
             </section>
             <section ref={this.sectionTwo}>
-              <SectionTwo />
+              <SectionTwo language={this.props.language} />
             </section>
             <section ref={this.sectionThree}>
-              <SectionThree />
+              <SectionThree language={this.props.language} />
             </section>
           </Container>
         </AnimatedLanding>
@@ -133,4 +140,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+export default withRouter(Landing);

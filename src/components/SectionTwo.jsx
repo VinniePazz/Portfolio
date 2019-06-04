@@ -35,29 +35,47 @@ class SectionTwo extends Component {
   };
 
   render() {
+    const { language } = this.props;
     return (
       <SectionContainer>
         <InfoBlock section="vinyl">
           <Heading section="vinyl">Vinyl</Heading>
-          <Description>E-commerce store with database integration</Description>
+          <Description>
+            {language === "en"
+              ? "E-commerce store with database integration"
+              : "Интернет-магазин с базой данных"}
+          </Description>
           <Technologies section="vinyl">
             #React, #Redux, #MongoDB, #Material-UI
           </Technologies>
-          <Language>language: en</Language>
+          <Language>
+            {" "}
+            {language === "en" ? "language: en" : "язык: английский"}
+          </Language>
           <ActionBar>
             <VisitLink
               section="vinyl"
               href="https://mysterious-dusk-48725.herokuapp.com/"
               target="blank"
             >
-              demo
+              <span />
+              <span />
+              <span />
+              <span />
+              {language === "en" ? "demo" : "демо"}
             </VisitLink>
             <GithubLink
               section="vinyl"
               href="https://github.com/VinniePazz/Vinyl"
               target="blank"
             >
-              source
+              {language === "en" ? "source" : "код"}
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
             </GithubLink>
           </ActionBar>
         </InfoBlock>

@@ -41,7 +41,7 @@ class RippleHeading extends React.Component {
     const height = this.refs.titleContainer.clientHeight;
     const offsetX = (e.nativeEvent.offsetX / width) * 160;
     const offsetY = (e.nativeEvent.offsetY / height) * 160;
-    console.log(offsetX, offsetY)
+    console.log(offsetX, offsetY);
     this.setState({
       x: Math.round(offsetX),
       y: Math.round(offsetY)
@@ -57,6 +57,7 @@ class RippleHeading extends React.Component {
 
   render() {
     const { x, y } = this.state;
+    const { language } = this.props;
 
     return (
       <>
@@ -66,14 +67,14 @@ class RippleHeading extends React.Component {
           ref="titleContainer"
         >
           <TitleWrapper>
-            <HeadingOne>DIMA</HeadingOne>
-            <HeadingTwo>SMAKOUZ</HeadingTwo>
+            <HeadingOne>{language === "en" ? "DIMA" : "ДИМА"}</HeadingOne>
+            <HeadingTwo>{language === "en" ? "SMAKOUZ" : "СМАКОУЗ"}</HeadingTwo>
           </TitleWrapper>
           <CloneWrapper
             style={{ clipPath: `polygon(0 0, ${x}% 0, ${y}% 100%, 0 100%)` }}
           >
-            <HeadingOne>DIMA</HeadingOne>
-            <HeadingTwo>SMAKOUZ</HeadingTwo>
+            <HeadingOne>{language === "en" ? "DIMA" : "ДИМА"}</HeadingOne>
+            <HeadingTwo>{language === "en" ? "SMAKOUZ" : "СМАКОУЗ"}</HeadingTwo>
           </CloneWrapper>
         </TitleContainer>
       </>

@@ -3,7 +3,8 @@ import { css } from "styled-components";
 const sizes = {
   small: 450,
   medium: 860,
-  large: 1200
+  large: 1200,
+  largeHeight: 1000
 };
 
 export const above = Object.keys(sizes).reduce((acc, label) => {
@@ -23,3 +24,9 @@ export const below = Object.keys(sizes).reduce((acc, label) => {
   `;
   return acc;
 }, {});
+
+export const large = (...args) => css`
+  @media (min-width: 1201px) and (min-height: 1000px) {
+    ${css(...args)}
+  }
+`;

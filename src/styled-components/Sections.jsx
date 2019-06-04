@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { above, below } from "./media";
+import { above, below, large } from "./media";
 
 export const SectionContainer = styled.div`
   min-height: 100vh;
@@ -20,6 +20,10 @@ export const SectionContainer = styled.div`
     min-height: 0;
     margin: 5rem 0;
   }
+
+  ${large`
+    min-height: 50vh;
+  `}
 `;
 
 export const InfoBlock = styled.div`
@@ -29,6 +33,7 @@ export const InfoBlock = styled.div`
   justify-content: center;
   align-items: ${({ section }) =>
     section === "vinyl" ? "flex-start" : "flex-end"};
+  text-align: ${({ section }) => (section === "vinyl" ? "left" : "right")};
   ${({ section, theme }) =>
     section === "vinyl" ? "padding-right: 2em" : "padding-left: 2em"};
 
@@ -113,5 +118,3 @@ export const Language = styled.p`
 export const ActionBar = styled.div`
   margin-top: 2rem;
 `;
-
-

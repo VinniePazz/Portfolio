@@ -4,6 +4,7 @@ import styled from "styled-components";
 const LanguageWrapper = styled.div`
   cursor: pointer;
   position: relative;
+  display: flex;
 `;
 
 const Dropdown = styled.ul`
