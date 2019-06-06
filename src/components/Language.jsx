@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { above, below } from "../styled-components";
 
 const LanguageWrapper = styled.div`
   cursor: pointer;
   position: relative;
   display: flex;
+
+  ${above.medium`
+  &::after {
+    position: absolute;
+    top: -30px;
+    left: -70%;
+    content: "change language";
+    padding: 0.2rem 0.4rem;
+    font-size: 0.6rem;
+    opacity: ${({ hover }) => (hover ? "1" : "0")};
+  }
+  `};
 `;
 
 const Dropdown = styled.ul`
@@ -18,7 +31,7 @@ const Dropdown = styled.ul`
   z-index: 999;
 
   li {
-    color: #333333;
+    color: #333333d4;
   }
 
   & li:hover {
@@ -28,6 +41,17 @@ const Dropdown = styled.ul`
   li:first-child {
     margin-bottom: 0.3rem;
   }
+
+  ${below.medium`
+    padding: 0;
+
+    li {
+    padding: 1rem 2rem .5rem 2rem;
+    margin-bottom: 0;
+    font-weight: 600;font-size: 1.2em;
+    border-bottom: 1px solid #333333d4;
+    }
+  `}
 `;
 
 const Overlay = styled.div`
@@ -43,6 +67,7 @@ const Overlay = styled.div`
 
 const SVG = styled.svg`
   fill: #edf2f4;
+  position: relative;
   width: ${({ width }) => width || "20px"};
   height: ${({ height }) => height || "20px"};
   transition: fill 0.2s;
@@ -54,21 +79,29 @@ const SVG = styled.svg`
 
 class Language extends Component {
   state = {
-    open: false
+    open: false,
+    hover: false
   };
 
   handleDropdown = () => {
     this.setState(prev => ({ open: !prev.open }));
   };
 
+  handlehoverOn = () => {
+    this.setState({ hover: true });
+  };
+  handlehoverOff = () => {
+    this.setState({ hover: false });
+  };
+
   render() {
     return (
-      <LanguageWrapper onClick={this.handleDropdown}>
+      <LanguageWrapper onClick={this.handleDropdown} hover={this.state.hover}>
         {this.state.open ? (
           <>
             <Dropdown>
-              <li onClick={() => this.props.changeLanguage('en')}>en</li>
-              <li onClick={() => this.props.changeLanguage('ru')}>ru</li>
+              <li onClick={() => this.props.changeLanguage("en")}>en</li>
+              <li onClick={() => this.props.changeLanguage("ru")}>ru</li>
             </Dropdown>
             <Overlay />
           </>
@@ -77,6 +110,8 @@ class Language extends Component {
           xmlns="http://www.w3.org/2000/svg"
           id="Capa_1"
           viewBox="0 0 510 510"
+          onMouseOver={this.handlehoverOn}
+          onMouseOut={this.handlehoverOff}
           {...this.props}
         >
           <path

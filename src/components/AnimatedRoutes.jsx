@@ -4,8 +4,7 @@ import posed, { PoseGroup } from "react-pose";
 
 import Landing from "./Landing";
 import About from "./About";
-import ProjectOne from "./ProjectOne";
-import Header from "./Header";
+import PageNotFound from "./PageNotFound";
 
 const RoutesContainer = posed.div({});
 
@@ -48,6 +47,7 @@ class AnimatedRoutes extends Component {
                       />
                     )}
                   />
+                  <Route component={PageNotFound} />
                 </Switch>
               </RoutesContainer>
             </PoseGroup>

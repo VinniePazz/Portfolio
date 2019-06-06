@@ -1,17 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
-import posed, { PoseGroup } from "react-pose";
-import { transform } from "popmotion";
-
-import Landing from "./Landing";
-import About from "./About";
+import posed from "react-pose";
 
 import AnimatedRoutes from "./AnimatedRoutes";
-
-const { pipe, clamp, interpolate, blendColor } = transform;
-
-const PoseContext = React.createContext();
 
 const InitialLayer = posed.div({
   initial: {
@@ -84,12 +76,12 @@ const Initial = styled(InitialLayer)`
   width: 100vw;
   height: 100vh;
   position: fixed;
-  z-index: 999;
+  z-index: 10000;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
-  background-color: #161616;
+  background-color: #1d1d2b;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,7 +100,7 @@ const Heading = styled.h1`
   line-height: 80%;
   padding: 0.4em 1em;
   position: relative;
-  ${({ type }) => type === "name" && "transform: translateX(-25%)"};
+  ${({ type }) => type === "name" && "transform: translateX(-15%)"};
 `;
 
 const Text = styled(AnimatedText)``;
@@ -129,12 +121,12 @@ class App extends Component {
     pose: 0
   };
 
-  // componentDidMount() {
-  //   this.setState({ pose: 1 });
-  //   setTimeout(() => {
-  //     this.setState({ pose: 2 });
-  //   }, 2000);
-  // }
+  componentDidMount() {
+    this.setState({ pose: 1 });
+    setTimeout(() => {
+      this.setState({ pose: 2 });
+    }, 2000);
+  }
 
   choosePose = () => {
     switch (this.state.pose) {
@@ -152,7 +144,7 @@ class App extends Component {
   render() {
     return (
       <>
-        {/* <Initial pose={this.choosePose()}>
+        <Initial pose={this.choosePose()}>
           <Slogan>
             <Heading type="name">
               <Text>dima</Text>
@@ -163,7 +155,7 @@ class App extends Component {
               <Box />
             </Heading>
           </Slogan>
-        </Initial> */}
+        </Initial>
 
         <Router>
           <AnimatedRoutes language={this.state.language} />

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import posed, { PoseGroup } from "react-pose";
-import styled, { keyframes } from "styled-components";
+import posed from "react-pose";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { above } from "../styled-components";
 
 import { MainLogo } from "../styled-components";
 import Code from "./icons/Code";
@@ -38,7 +39,7 @@ const AnimatedHeader = posed.header({
 const AboutWrapper = styled(AnimatedAbout)`
   min-height: 100vh;
   background: #1d1d2b;
-  z-index: 999;
+  z-index: 1000;
   position: relative;
 `;
 
@@ -58,7 +59,7 @@ const Header = styled(AnimatedHeader)`
 
 const ToogleContainer = styled.div`
   display: flex;
-  margin: 0 2rem 0 auto;
+  margin: 0 3rem 0 auto;
   align-items: center;
 `;
 
@@ -66,9 +67,10 @@ const Toggle = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  margin: 0 .5rem;
+  position: relative;
+  margin: 0 0.5rem;
   width: 40px;
-  height: 20px;
+  height: 15px;
   transition: all 0.2s;
   background: ${({ codeStyle }) => (codeStyle ? "#79515163" : "#3aabab66")};
   position: relative;
@@ -78,13 +80,34 @@ const Toggle = styled.button`
     content: "";
     position: absolute;
     transition: all 0.2s;
-    top: 0;
+    top: -15%;
     left: ${({ codeStyle }) => (codeStyle ? "0" : "50%")};
     width: 20px;
-    height: 100%;
+    height: 20px;
     background: ${({ codeStyle }) => (codeStyle ? "#e76f51" : "#3aabab")};
-    border-radius: 25px;
+    border-radius: 100%;
   }
+
+  ${above.medium`
+  &::after {
+    content: "switch mode";
+    position: absolute;
+    transition: all 0.2s;
+    opacity: 0;
+    top: 180%;
+    left: -10%;
+    background: ${({ codeStyle }) => (codeStyle ? "#79515163" : "#3aabab66")};
+    padding: .2rem .4rem;
+    pointer-events: none;
+    color: #d8dbe2;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+  `}
 `;
 
 class About extends Component {

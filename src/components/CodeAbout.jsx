@@ -27,6 +27,11 @@ const UtilContainer = styled.div`
   @media(min-height: 900px) {
     padding-top: 8rem;
   }
+
+  @media (max-width: 450px) {
+    padding-top: 8rem;
+    font-size: 18px;
+  }
 `;
 
 const Line = styled(AnimatedLine)`
@@ -114,13 +119,13 @@ const CodeAbout = ({ language }) => {
         <Comments>
           {language === "en" ? (
             <>
-              <Line n={3}>//Ambitious person </Line>
+              <Line n={3}>//Ambitious self-taught person </Line>
               <Line n={4}>//who set himself a huge goal - </Line>
               <Line n={5}>//become a professional web developer</Line>
             </>
           ) : (
             <>
-              <Line n={3}>//Амбициозный парень, </Line>
+              <Line n={3}>//Амбициозный самоучка, </Line>
               <Line n={4}>//который поставил перед собой цель - </Line>
               <Line n={5}>//стать профессиональным веб-разработчиком</Line>
             </>

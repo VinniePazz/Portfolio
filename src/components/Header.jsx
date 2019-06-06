@@ -10,7 +10,6 @@ import Language from "./Language";
 const AnimatedHeader = posed.header({
   enter: {
     opacity: 1,
-    delay: 1000,
     transition: { duration: 200, ease: "easeIn" }
   },
   exit: {
@@ -68,7 +67,7 @@ const Header = ({ activeSection, changeLanguage, language }) => {
         <div />
       </MainLogo>
       <About as={Link} to="/about" activeSection={activeSection}>
-        {language === "en" ? "about" : "обо мне"}
+        {language === "en" ? "about me" : "обо мне"}
       </About>
       <Language activeSection={activeSection} changeLanguage={changeLanguage} />
     </StyledHeader>

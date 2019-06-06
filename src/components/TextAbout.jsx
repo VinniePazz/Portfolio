@@ -11,15 +11,18 @@ const AnimatedWrapper = posed.div({
 const Wrapper = styled(AnimatedWrapper)`
   max-width: 700px;
   margin: 0 auto;
-
-  
 `;
 
 const UtilContainer = styled.div`
   width: 100%;
   padding: 5rem 1.5rem;
+  font-size: 1.2rem;
 
-  @media(min-height: 900px) {
+  @media (min-height: 900px) {
+    padding-top: 8rem;
+  }
+
+  @media (max-width: 450px) {
     padding-top: 8rem;
   }
 `;
@@ -29,7 +32,11 @@ const TextAbout = ({ language }) => {
     <Wrapper>
       <UtilContainer>
         <p>
-          {language === "en" ? (<AboutContent language={language} />) : (<AboutContent language={language} />)}
+          {language === "en" ? (
+            <AboutContent language={language} />
+          ) : (
+            <AboutContent language={language} />
+          )}
         </p>
       </UtilContainer>
     </Wrapper>

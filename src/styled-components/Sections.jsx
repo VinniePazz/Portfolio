@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { above, below, large } from "./media";
+import { below, large } from "./media";
 
 export const SectionContainer = styled.div`
   min-height: 100vh;

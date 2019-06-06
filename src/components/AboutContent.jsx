@@ -9,7 +9,7 @@ const AboutContainer = styled.div`
 `;
 
 const Heading = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.5em;
 `;
 
 const HeadingOne = styled(Heading)``;
@@ -39,8 +39,6 @@ const LinkToProjects = styled.a`
 `;
 
 const Technologies = styled.div`
-  word-spacing: 3px;
-  
   span {
     font-weight: 700;
     color: ${({ theme }) => theme.pallette.main};
@@ -72,7 +70,10 @@ const Social = styled.ul`
 `;
 
 const socialLinks = [
-  { name: "linkedin", linkTo: "https://www.linkedin.com/in/dima-smakouz-9ab590188/" },
+  {
+    name: "linkedin",
+    linkTo: "https://www.linkedin.com/in/dima-smakouz-9ab590188/"
+  },
   { name: "github", linkTo: "https://github.com/VinniePazz" },
   {
     name: "mail",
@@ -88,12 +89,12 @@ const AboutContent = ({ language }) => {
   return (
     <AboutContainer>
       <HeadingOne>
-        {language === "en" ? "Hi. I'm Dima" : "Меня зовут Дима"}.
+        {language === "en" ? "Hi. I'm Dima" : "Здравствуй, я Дима"}.
       </HeadingOne>
       <HeadingTwo>
         {language === "en"
           ? "Novice web developer from Kiyv"
-          : "Я начинающий веб-разработчик из Киева"}
+          : "Начинающий веб-разработчик из Киева"}
         .
       </HeadingTwo>
       <Info>
@@ -118,14 +119,22 @@ const AboutContent = ({ language }) => {
           </LinkToProjects>
         </p>
         <Technologies>
-          <span>{language === "en" ? "Technical skills" : "Технические навыки"}:</span> HTML5, CSS3, Javascript (ES5 - ES8),
-          React 16+, Redux, Node.js, Express, MongoDB (Mongoose), Firebase /
-          Firestore, Webpack / Gulp, npm, SCSS, Styled-Components, Material UI /
-          Semantic UI / Bootstrap4, D3 / Victory.js, GIT / Github, Heroku /
-          Netlify, Figma, Avocode, Inkscape, Trello <Dots>...</Dots>
+          <span>
+            {language === "en"
+              ? "Skills I'm currently working on"
+              : "Технические навыки"}
+            :
+          </span>{" "}
+          HTML5, CSS3, Javascript (ES5 - ES8), React 16+, Redux, Node.js,
+          Express, MongoDB (Mongoose), Firebase / Firestore, Webpack / Gulp,
+          npm, Styled-Components, SCSS, 'PUG', Material UI / Semantic UI /
+          Bootstrap4, D3 / Victory.js, GIT / Github, Heroku / Netlify, Figma,
+          Avocode, Inkscape, Trello <Dots>...</Dots>
         </Technologies>
         <Action>
-        {language === "en" ? "Wanna talk ? Reach me at" : "Я всегда открыт к сотрудничеству и общению"}{" "}
+          {language === "en"
+            ? "You can reach me at"
+            : "Буду рад сотрудничеству и общению"}{" "}
           <a href="mailto:dimasmakouz@gmail.com" target="blank">
             dimasmakouz@gmail.com.
           </a>
