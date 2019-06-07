@@ -22,7 +22,7 @@ const LanguageWrapper = styled.div`
 
 const Dropdown = styled.ul`
   position: absolute;
-  background: white;
+  background: #fafafa;
   list-style: none;
   padding: 0.5rem 0.7rem;
   top: 130%;
@@ -31,7 +31,7 @@ const Dropdown = styled.ul`
   z-index: 999;
 
   li {
-    color: #333333d4;
+    color: rgba(51, 51, 51, 0.83);
   }
 
   & li:hover {
@@ -49,7 +49,7 @@ const Dropdown = styled.ul`
     padding: 1rem 2rem .5rem 2rem;
     margin-bottom: 0;
     font-weight: 600;font-size: 1.2em;
-    border-bottom: 1px solid #333333d4;
+    border-bottom: 1px solid rgba(51,51,51,.4);
     }
   `}
 `;
@@ -72,8 +72,8 @@ const SVG = styled.svg`
   height: ${({ height }) => height || "20px"};
   transition: fill 0.2s;
   &:hover {
-    fill: ${({ activeSection }) =>
-      activeSection === 2 ? "#1f8a8a" : "#e76f51b8"};
+    fill: ${({ activeSection, theme }) =>
+      activeSection === 2 ? "#1f8a8a" : `${theme.pallette.mainDarker}`};
   }
 `;
 

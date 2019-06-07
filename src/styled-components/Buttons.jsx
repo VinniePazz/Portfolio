@@ -172,7 +172,7 @@ export const VisitLink = styled(Button)`
   ${above.medium`
 
   background: ${({ section }) =>
-    section === "vinyl" ? `#90565633` : `#3aabab33`};
+    section === "vinyl" ? `rgba(144, 86, 86, 0.2)` : `rgba(58, 171, 171, 0.2)`};
 
   & span {
     background-color: ${({ section, theme }) =>

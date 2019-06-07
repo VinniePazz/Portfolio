@@ -19,16 +19,13 @@ const Wrapper = styled.div`
 
 const Paragraph = styled.p`
   margin-top: 0.8rem;
-  color: #e76f51b8;
+  color: ${({ theme }) => theme.pallette.mainDarker};
 `;
 
 class SectionOne extends React.Component {
   handleClick = () => {
     const height = this.refs.Hero.clientHeight;
-    window.scrollTo({
-      top: height,
-      behavior: "smooth"
-    });
+    window.scroll(0, height);
   };
 
   render() {
@@ -43,9 +40,7 @@ class SectionOne extends React.Component {
               : "веб-разработчик из Киева"}
           </Paragraph>
           <MainButton onClick={this.handleClick}>
-            {language === "en"
-              ? "projects"
-              : "проекты"}
+            {language === "en" ? "projects" : "проекты"}
             <span />
             <span />
             <span />

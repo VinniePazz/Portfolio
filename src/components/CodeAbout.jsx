@@ -20,7 +20,7 @@ const Wrapper = styled(AnimatedWrapper)`
 const UtilContainer = styled.div`
   width: 80%;
   margin-left: auto;
-  border-left: 1px solid #fafafa4a;
+  border-left: 1px solid rgba(250, 250, 250, 0.3);
   padding: 5rem 1.5rem;
   font-family: monospace;
 
@@ -45,15 +45,15 @@ const Line = styled(AnimatedLine)`
     top: 0;
     left: -60px;
     content: '${({ n }) => n}';
-    color: #fafafa4a;
+    color: rgba(250, 250, 250, 0.3);
   }
 
   &:hover {
-    background-color: #4a4a4a3d;
+    background-color: rgba(74, 74, 74, 0.23);
   }
 
   .dots {
-    color: #fafafa17;
+    color: rgba(250, 250, 250, 0.1);
     font-size: .8rem;
     letter-spacing: 1px;
     margin-right: 2px;
@@ -64,7 +64,7 @@ const Orange = styled.span`
   color: #d8a64b;
 `;
 const Violet = styled.span`
-  color: #996abff7;
+  color: rgba(153, 106, 191, 0.96);
 `;
 const Blue = styled.span`
   color: #1491c3;
@@ -79,7 +79,7 @@ const Grass = styled.span`
   color: #7ebb75;
 `;
 const Comments = styled.span`
-  color: #fafafa4a;
+  color: rgba(250, 250, 250, 0.3);
 `;
 const EmptyLine = styled(Line)`
   color: transparent;

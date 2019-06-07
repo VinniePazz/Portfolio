@@ -72,7 +72,8 @@ const Toggle = styled.button`
   width: 40px;
   height: 15px;
   transition: all 0.2s;
-  background: ${({ codeStyle }) => (codeStyle ? "#79515163" : "#3aabab66")};
+  background: ${({ codeStyle, theme }) =>
+    codeStyle ? "rgba(231, 111, 81, 0.34)" : "rgba(58,171,171,0.34)"};
   position: relative;
   border-radius: 25px;
 
@@ -84,7 +85,8 @@ const Toggle = styled.button`
     left: ${({ codeStyle }) => (codeStyle ? "0" : "50%")};
     width: 20px;
     height: 20px;
-    background: ${({ codeStyle }) => (codeStyle ? "#e76f51" : "#3aabab")};
+    background: ${({ codeStyle, theme }) =>
+      codeStyle ? `${theme.pallette.main}` : `${theme.pallette.secondary}`};
     border-radius: 100%;
   }
 

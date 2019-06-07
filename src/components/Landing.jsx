@@ -48,7 +48,7 @@ class Landing extends Component {
       100;
     const sectionThree = this.sectionThree.current.offsetTop - 300;
     const offsetTop = window.pageYOffset;
-    console.log(offsetTop, sectionThree);
+    
     if (offsetTop <= sectionOne && this.state.activeSection !== 0) {
       this.setState({
         activeSection: 0

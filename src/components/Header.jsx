@@ -50,8 +50,8 @@ const About = styled.a`
   margin: 0 2rem 0 auto;
 
   &:hover {
-    color: ${({ activeSection }) =>
-      activeSection === 2 ? "#1f8a8a" : "#e76f51b8"};
+    color: ${({ activeSection, theme }) =>
+      activeSection === 2 ? "#1f8a8a" : `${theme.pallette.mainDarker}`};
   }
 `;
 

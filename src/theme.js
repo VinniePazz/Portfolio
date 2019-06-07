@@ -1,32 +1,9 @@
 export default {
   pallette: {
     main: "#e76f51",
-    mainDarker: "#e76f51bd",
+    mainDarker: "rgba(231,111,81,0.72)",
     secondary: "#3aabab",
-    secondaryDarker: "#3aababbd",
+    secondaryDarker: "rgba(58, 171, 171, 0.72)",
     text: "#d8dbe2"
   }
 };
-
-class Dima {
-
-  // asdasdasd
-  // asdasdasdasd
-
-  constructor() {
-    this.name = "Dima";
-    this.email = "dimasmakouz@gmail.com";
-  }
-
-  education() {
-    return {
-      "2011-2018": "KNTEU"
-    };
-  }
-
-  skills() {
-    return ["asd", "asd"];
-  }
-}
-
-// export default Dima;

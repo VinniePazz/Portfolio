@@ -54,9 +54,9 @@ const Pages = styled.ul`
 
 const ProjectLink = styled.a`
   margin-top: 1em;
-  color: ${({ active, project }) =>
+  color: ${({ active, project, theme }) =>
     active === 1 && project === 1
-      ? "#e76f51b8"
+      ? `${theme.pallette.mainDarker}`
       : active === 2 && project === 2
       ? "#3aabab"
       : "#fdfffcd4"};
@@ -67,8 +67,12 @@ const ProjectLink = styled.a`
   cursor: pointer;
 
   &:hover {
-    color: ${({ project }) =>
-      project === 1 ? "#e76f51b8" : project === 2 ? "#3aabab" : "#fdfffcd4"};
+    color: ${({ project, theme }) =>
+      project === 1
+        ? `${theme.pallette.main}`
+        : project === 2
+        ? "#3aabab"
+        : "#fdfffcd4"};
   }
 
   ${below.medium`
@@ -94,7 +98,10 @@ const Social = styled.ul`
 `;
 
 const socialLinks = [
-  { name: "linkedin", linkTo: "https://www.linkedin.com/in/dima-smakouz-9ab590188/" },
+  {
+    name: "linkedin",
+    linkTo: "https://www.linkedin.com/in/dima-smakouz-9ab590188/"
+  },
   { name: "github", linkTo: "https://github.com/VinniePazz" },
   {
     name: "mail",
