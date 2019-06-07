@@ -42,7 +42,7 @@ const Dropdown = styled.ul`
     margin-bottom: 0.3rem;
   }
 
-  ${below.medium`
+  ${below.large`
     padding: 0;
 
     li {

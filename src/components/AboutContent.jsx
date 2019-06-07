@@ -89,12 +89,12 @@ const AboutContent = ({ language }) => {
   return (
     <AboutContainer>
       <HeadingOne>
-        {language === "en" ? "Hi. I'm Dima" : "Здравствуй, я Дима"}.
+        {language === "en" ? "Hi there! I'm Dima" : "Здравствуй."}.
       </HeadingOne>
       <HeadingTwo>
         {language === "en"
           ? "Novice web developer from Kiyv"
-          : "Начинающий веб-разработчик из Киева"}
+          : "Я начинающий веб-разработчик из Киева"}
         .
       </HeadingTwo>
       <Info>

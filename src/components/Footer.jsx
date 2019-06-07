@@ -102,7 +102,7 @@ const socialLinks = [
   },
   {
     name: "resume",
-    linkTo: "/resume.pdf"
+    linkTo: "/CV.pdf"
   }
 ];
 
