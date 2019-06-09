@@ -26,10 +26,6 @@ const Info = styled.div`
   * {
     margin-top: 2rem;
   }
-
-  p:last-of-type {
-    text-align: right;
-  }
 `;
 
 const LinkToProjects = styled.a`
@@ -89,19 +85,19 @@ const AboutContent = ({ language }) => {
   return (
     <AboutContainer>
       <HeadingOne>
-        {language === "en" ? "Hi there! I'm Dima" : "Здравствуй."}.
+        {language === "en" ? "Hi there! I'm Dima" : "Здравствуй"}.
       </HeadingOne>
       <HeadingTwo>
         {language === "en"
-          ? "Novice web developer from Kiyv"
-          : "Я начинающий веб-разработчик из Киева"}
-        .
+          ? "Novice web developer"
+          : "Я начинающий веб-разработчик"}
+        ,
       </HeadingTwo>
       <Info>
         <p>
           {language === "en"
-            ? "I haven't commercial experience in web development ... but I have a goal and 24 hours in day to learn how to develop a quality products at the same level of people who have such experience"
-            : "У меня нет коммерческого опыта в разработке веб-приложений... но у меня есть цель и 24 часа в сутки чтобы научиться разрабатывать качественный продукт на уровне людей у которых даный опыт есть "}
+            ? "currently looking for the opportunity to work in the web development team where people realize their dreams via code. I haven't commercial experience in web development ... but I have a goal and 24 hours per day to learn how to develop quality products at the same level of people who have such experience."
+            : "который ищет команду людей, где идеи и воображение воплощаются в реальность. У меня нет коммерческого опыта в веб-разработке... но у меня есть цель и 24 часа каждый день, для того, чтобы научиться разрабатывать приложения на уровне людей у которых даный опыт есть "}
           .
         </p>
         <p>
@@ -115,7 +111,7 @@ const AboutContent = ({ language }) => {
               state: { fromAboutPage: true }
             }}
           >
-            {language === "en" ? "here" : "здесь"}
+            {language === "en" ? "here." : "здесь."}
           </LinkToProjects>
         </p>
         <Technologies>
