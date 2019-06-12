@@ -52,7 +52,7 @@ class SectionThree extends Component {
           <Heading section="ki-events">Ki-events</Heading>
           <Description>
             {language === "en"
-              ? "Social network with realtime changings"
+              ? "Social network with real-time changings"
               : "Социальная сеть с изменениями в реальном времени"}
           </Description>
           <Technologies>#React, #Redux, #Firebase, #Semantic-UI</Technologies>

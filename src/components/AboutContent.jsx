@@ -96,8 +96,8 @@ const AboutContent = ({ language }) => {
       <Info>
         <p>
           {language === "en"
-            ? "currently looking for the opportunity to work in the web development team where people realize their dreams via code. I haven't commercial experience in web development ... but I have a goal and 24 hours per day to learn how to develop quality products at the same level of people who have such experience."
-            : "который ищет команду людей, где идеи и воображение воплощаются в реальность. У меня нет коммерческого опыта в веб-разработке... но у меня есть цель и 24 часа каждый день, для того, чтобы научиться разрабатывать приложения на уровне людей у которых даный опыт есть "}
+            ? "currently looking for the opportunity to work in the web development team where people realize their dreams via code. I haven't commercial experience in web development ... but I have a goal and 24 hours per day to learn how to develop quality products at the same level of people who have such experience"
+            : "который ищет команду людей, где идеи и воображение воплощаются в реальность. У меня нет коммерческого опыта в веб-разработке... но у меня есть цель и 24 часа каждый день, для того, чтобы научиться разрабатывать приложения на уровне людей у которых даный опыт есть"}
           .
         </p>
         <p>
